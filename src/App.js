@@ -1,10 +1,10 @@
 import React from "react";
 import {hot} from "react-hot-loader";
 import "./App.css";
-import Nav from './Nav'
-import About from "./About";
-import Selection from "./Selection";
-import HeroDetail from "./HeroDetail";
+import Nav from './components/Nav'
+import About from "./components/About";
+import Selection from "./components/Selection";
+import HeroDetail from "./components/HeroDetail";
 import {BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 function App() {

@@ -1,8 +1,9 @@
 import React, {useState, useEffect} from "react";
-import "./App.css";
+import "../App.css";
 
 
 function HeroDetail({match}) {
+
 
     useEffect(() => {
         fetchHero();
@@ -17,13 +18,16 @@ function HeroDetail({match}) {
         setItem(item);
         const heroId = match.params.id;
         console.log(match.params.id);
-        const hero = item.find(element => element.id === heroId);
+        const hero = item.find(element => element.id === Number(heroId));
         console.log(hero);
-        console.log(item);
+        setItem(hero);
+
     };
     return(
         <div>
-           <h1>{hero.name} </h1>
+           <h1>{hero.localized_name} </h1>
+            <h2>{hero.move_speed}</h2>
+            <h2>{hero.base_health}</h2>
         </div>
     );
 }
