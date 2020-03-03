@@ -16,6 +16,7 @@ function HeroDetail({match}) {
         const item = await fetchHero.json();
         setItem(item);
         const heroId = match.params.id;
+        console.log(match.params.id);
         const hero = item.find(element => element.id === heroId);
         console.log(hero);
         console.log(item);
