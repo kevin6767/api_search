@@ -1,13 +1,20 @@
 import React, {useState, useEffect} from "react"
 import "../App.css"
 import {fetchHeroDetail} from './services/HeroDetail.services'
+import { useParams } from 'react-router-dom'
 
-function HeroDetail({match}) {
 
+const setHeroDetail = async setHero => {
+    const hero = await fetchHeroDetail()
+    setHero(hero)
+}
+
+function HeroDetail() {
+    let id = useParams()
     const [hero, setHero] = useState({})
 
-    useEffect( async () => {
-         setHero( await fetchHeroDetail(match.params.id))
+    useEffect(  () => {
+            setHeroDetail(setHero, id)
     },[])
 
 

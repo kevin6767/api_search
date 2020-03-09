@@ -3,16 +3,20 @@ import "../App.css"
 import {Link} from "react-router-dom"
 import {fetchHeroes} from './services/Selection.services'
 
+const fetchAndSetHeroes = async setItems => {
+    const heroes = await fetchHeroes()
+    setItems(heroes)
+}
+
 function Selection() {
     const navStyle = {
         color: 'black'
     };
     const [items, setItems] = useState([])
 
-    useEffect(async () => {
-        setItems(await fetchHeroes())
-    },[])
-
+    useEffect(() => {
+        fetchAndSetHeroes(setItems)
+    }, [])
 
     return(
         <div>
