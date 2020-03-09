@@ -1,5 +1,5 @@
-import React from "react";
-import "../App.css";
+import React from "react"
+import "../App.css"
 
 function About() {
     return(
@@ -9,4 +9,4 @@ function About() {
     );
 }
 
-export default About;
+export default About

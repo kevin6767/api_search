@@ -1,23 +1,19 @@
-import React, {useState, useEffect} from "react";
-import "../App.css";
-import {Link} from "react-router-dom";
+import React, {useState, useEffect} from "react"
+import "../App.css"
+import {Link} from "react-router-dom"
+import {fetchHeroes} from './services/Selection.services'
 
 function Selection() {
     const navStyle = {
         color: 'black'
     };
-    useEffect(() => {
-            fetchHeroes();
-    },[]);
+    const [items, setItems] = useState([])
 
-    const [items, setItems] = useState([]);
+    useEffect(async () => {
+        setItems(await fetchHeroes())
+    },[])
 
-    const fetchHeroes = async () => {
-        const data = await fetch('https://api.opendota.com/api/heroStats');
-        const heroes = await data.json();
-        console.log(heroes);
-        setItems(heroes);
-    };
+
     return(
         <div>
             {items.map(item => (
@@ -30,4 +26,4 @@ function Selection() {
     );
 }
 
-export default Selection;
+export default Selection
