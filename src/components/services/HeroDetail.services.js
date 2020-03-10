@@ -5,7 +5,5 @@ export const fetchHeroDetail = async (id) => {
     console.log(data)
     const heroDetails = await data.json()
     console.log(heroDetails)
-    console.log(heroDetails.find(heroDetail => heroDetail.id === +id))
     return heroDetails.find(heroDetail => heroDetail.id === +id)
-
 };
