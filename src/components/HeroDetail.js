@@ -5,13 +5,15 @@ import { useParams } from 'react-router-dom'
 
 
 function HeroDetail() {
-    let id = useParams()
+    const { id } = useParams()
     const [hero, setHero] = useState({})
 
-    useEffect(  () => {
-            setHero(fetchHeroDetail(id))
-    },[])
+    useEffect(() => {
+         fetchHeroDetail(id).then(hero => {
+            setHero(hero);
 
+        });
+    }, [id]);
 
 
 
