@@ -4,17 +4,12 @@ import {fetchHeroDetail} from './services/HeroDetail.services'
 import { useParams } from 'react-router-dom'
 
 
-const setHeroDetail = async setHero => {
-    const hero = await fetchHeroDetail()
-    setHero(hero)
-}
-
 function HeroDetail() {
     let id = useParams()
     const [hero, setHero] = useState({})
 
     useEffect(  () => {
-            setHeroDetail(setHero, id)
+            setHero(fetchHeroDetail(id))
     },[])
 
 
